@@ -1,0 +1,36 @@
+package by.donin.L2025_01_20;
+
+import by.donin.utils.ArrayUtil;
+
+import java.util.Arrays;
+
+public class Task01 {
+    public static void main(String[] args) {
+        sort();
+        search();
+        fill();
+
+    }
+
+    private static void fill() {
+        int[] arr = new int[50];
+        System.out.println(Arrays.toString(arr));
+        Arrays.fill(arr, 8);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void search() {
+        int[] arr = ArrayUtil.generateIntArray(20, 0, 20);
+        Arrays.sort(arr);
+        int index = Arrays.binarySearch(arr, 5);
+        System.out.println(index >= 0 ? "Найден элемент по индексу " + index : "Не найден");
+    }
+
+    private static void sort() {
+       int[] arr = ArrayUtil.generateIntArray(20, 0, 20);
+       Arrays.sort(arr);
+       System.out.println(Arrays.toString(arr));
+    }
+
+
+}
