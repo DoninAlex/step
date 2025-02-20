@@ -6,7 +6,9 @@ public class Owner {
     private int id;
     private String name;
     private String surName;
-    private static String[] names = new String[5];
+    private boolean isMale;
+    private static String[] maleNames = new String[5];
+    private static String[] femaleNames = new String[5];
     private static String[] surNames = new String[5];
     private Pet[] pets = new Pet[0];
     private static int totalOwners = 0;
@@ -20,17 +22,29 @@ public class Owner {
         surNames[3] = "Буренко";
         surNames[4] = "Залетайло";
 
-        names[0] = "Катя";
-        names[1] = "Вася";
-        names[2] = "Петя";
-        names[3] = "Маша";
-        names[4] = "Коля";
+        maleNames[0] = "Саша";
+        maleNames[1] = "Вася";
+        maleNames[2] = "Петя";
+        maleNames[3] = "Ваня";
+        maleNames[4] = "Коля";
+
+        femaleNames[0] = "Катя";
+        femaleNames[1] = "Маша";
+        femaleNames[2] = "Ира";
+        femaleNames[3] = "Зина";
+        femaleNames[4] = "Аня";
     }
 
     public Owner() {
         this.id = ++totalOwners;
         surName = surNames[random.nextInt(surNames.length)];
-        name = names[random.nextInt(names.length)];
+        isMale = random.nextBoolean();
+        if(isMale) {
+            name = maleNames[random.nextInt(maleNames.length)];
+        } else {
+            name = femaleNames[random.nextInt(femaleNames.length)];
+        }
+
     }
 
     public String getName() {
