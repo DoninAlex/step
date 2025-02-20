@@ -92,4 +92,9 @@ public class Owner {
         pets = pets1;
         pet.setOwner(this);
     }
+
+    @Override
+    public String toString() {
+        return surName + " " + name + " : " + this.pets.length;
+    }
 }
