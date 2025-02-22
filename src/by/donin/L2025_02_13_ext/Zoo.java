@@ -16,15 +16,13 @@ public class Zoo {
                 animals[animalIndex++] = pet;
                 owner.addPet((Pet)pet);
             }
-            owners[ownerIndex] = owner;
+            owners[ownerIndex++] = owner;
         }
 
 
         //owner1.addPet((Pet)cat2);
         for(Owner owner : owners) {
             System.out.println(owner);
-
-            System.out.println();
         }
 
         /*for(Animal animal : animals) {
