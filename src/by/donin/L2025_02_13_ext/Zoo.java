@@ -40,5 +40,17 @@ public class Zoo {
         }*/
         System.out.println("Общее количество животных: " + Animal.getTotalAnimals());
         System.out.println("Общее количество владельцев: " + Owner.getTotalOwners());
+
+
+        Swimable[] swimables = new Swimable[1];
+        swimables[0] = new Bird("Карыч", "птица", 10, "Саванна");
+        for(Swimable swimable : swimables) {
+            //swimable.swim();
+            if (swimable instanceof Bird bird) {
+                bird.move();
+            }
+        }
+        Flyable[] flyables = new Flyable[1];
+        flyables[0] = new Bird("Утка", "утка", 4, "Средняя полоса");
     }
 }

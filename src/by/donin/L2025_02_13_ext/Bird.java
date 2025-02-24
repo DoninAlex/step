@@ -1,6 +1,6 @@
 package by.donin.L2025_02_13_ext;
 
-public class Bird extends WildAnimal {
+public class Bird extends WildAnimal implements Flyable, Swimable{
     public Bird(String name, String species, int age, String area) {
         super(name, species, age, area);
     }
@@ -21,4 +21,13 @@ public class Bird extends WildAnimal {
     }
 
 
+    @Override
+    public void fly() {
+        System.out.println(getName() + " летает");
+    }
+
+    @Override
+    public void Swim() {
+        System.out.println(getName() + " плывёт");
+    }
 }
