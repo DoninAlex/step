@@ -2,23 +2,30 @@ package by.donin.L2025_02_13_ext;
 
 public class Zoo {
     public static void main(String[] args) {
-        Owner owner1 = new Owner();
-        Owner owner2 = new Owner();
-        Animal dog1 = new Dog("Барсик", "Собака", 3);
-        Animal cat1 = new Cat("Мурка", "Кот", 2);
-        Animal dog2 = new Dog("Бобик", "Собака", 2);
-        Animal cat2 = new Cat("Котя", "Кот", 4);
-        Animal bird = new Bird("Кеша", "Птица", 1, "Тропический лес");
-        Animal lion = new Lion("Симба", "Лев", 5, "Африканская саванна");
+        int ownerCount = 100;
+        int petCount = 200;
+        int animalIndex = 0;
+        int ownerIndex = 0;
+        Owner[] owners = new Owner[ownerCount];
+        Animal[] animals = new Animal[ownerCount*petCount];
 
-        Animal[] animals = {dog1, cat1, dog2, cat2, bird, lion};
+        for (int i = 0; i < ownerCount; i++) {
+            Owner owner = OwnerFactory.next();
+            for (int j = 0; j < petCount; j++) {
+                Animal pet = PetFactory.next();
+                animals[animalIndex++] = pet;
+                owner.addPet((Pet)pet);
+            }
+            owners[ownerIndex++] = owner;
+        }
 
-        owner1.addPet((Pet)cat1);
+
         //owner1.addPet((Pet)cat2);
-        owner2.addPet((Pet)dog1);
-        owner2.addPet((Pet)dog2);
+        for(Owner owner : owners) {
+            System.out.println(owner);
+        }
 
-        for(Animal animal : animals) {
+        /*for(Animal animal : animals) {
             System.out.println(animal);
             animal.makeSound();
             animal.move();
@@ -30,7 +37,7 @@ public class Zoo {
                 wild.hunt();
             }
             System.out.println();
-        }
+        }*/
         System.out.println("Общее количество животных: " + Animal.getTotalAnimals());
         System.out.println("Общее количество владельцев: " + Owner.getTotalOwners());
     }
