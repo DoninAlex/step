@@ -8,7 +8,7 @@ public class ArrayRecruits {
     private static int totalNotValidRecruits = 0;
     //int recruitsNumber;
 
-    ArrayRecruits(int capacity) {
+    public ArrayRecruits(int capacity) {
             recruits = new Recruit[capacity];
             validRecruits = new Recruit[capacity];
             notValidRecruits = new Recruit[capacity];

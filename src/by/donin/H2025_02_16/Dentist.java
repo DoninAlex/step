@@ -3,7 +3,7 @@ package by.donin.H2025_02_16;
 public class Dentist extends Doctor{
     public Dentist() {
         super();
-        setSpecialty("Дантист");
+        super.setSpecialty("Дантист");
     }
 
     public void test(Recruit recruit) {
