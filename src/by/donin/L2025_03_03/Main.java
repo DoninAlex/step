@@ -1,9 +1,6 @@
 package by.donin.L2025_03_03;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static by.donin.L2025_03_03.StudentFactory.students;
 
@@ -20,12 +17,12 @@ public class Main {
         System.out.println("Размер students => " + students.size());
 
         System.out.println();
-        System.out.println(find(students, "Александр"));
+        System.out.println(findStudent(students, "Александр"));
 
-        remove("Александр");
+        removeStudent("Александр");
         System.out.println("Размер students => " + students.size());
 
-        List<Student> students2 = new ArrayList<>();
+        final List<Student> students2 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             students2.add(StudentFactory.getNext());
         }
@@ -34,30 +31,45 @@ public class Main {
         addList(students, students2);
         System.out.println("Размер students => " + students.size());
 
+        // Заменяем студента по индексу
         System.out.println();
         System.out.println(students.get(4));
         Student student1 = StudentFactory.getNext();
         System.out.println(">>> Заменяем на студента: " + student1);
-        replace(students, 4, student1);
+        replaceStudent(students, 4, student1);
         System.out.println(students.get(4));
 
+        //sortArray(students);
+        //System.out.println(students);
+
+        sortStudentsByComparator(students, new StudentNameComparator());
+        System.out.println(students);
     }
 
-    public static Student find(List list, String name) {
+    private static void sortArray(List<Student> students) {
+        Collections.sort(students);
+    }
+
+    private static void sortStudentsByComparator(List<Student> students2, Comparator<Student> comparator) {
+        students2.sort(comparator);
+        //Collections.sort(students2, comparator); // Второй вариант
+    }
+
+    public static Student findStudent (List list, String name) {
         for (Student student : students) {
-            if (student.getName() == name) {
+            if (name.equals(student.getName())) {
                 return student;
             }
         }
         return null;
     }
 
-    public static void remove (String name) {
+    public static void removeStudent(String name) {
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()) {
-            Student next = iterator.next();
-            if (next.getName() == name) {
-                System.out.println("Удаляем студента: " + next.toString());
+            Student nextStudent = iterator.next();
+            if (name.equals(nextStudent.getName())) {
+                System.out.println("Удаляем студента: " + nextStudent.toString());
                 iterator.remove();
             }
         }
@@ -67,7 +79,10 @@ public class Main {
         srcList.addAll(destList);
     }
 
-    public static void replace(List list, int index, Student newStudent) {
+    public static void replaceStudent(List list, int index, Student newStudent) {
+        if (list.size() < (index) || index < 0) {
+            return;
+        }
         list.set(index, newStudent);
     }
 
