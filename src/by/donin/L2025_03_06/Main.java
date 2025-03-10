@@ -8,5 +8,11 @@ public class Main {
         final int capacity = 100;
         List<Transport> transportList = new ArrayList<>(capacity);
         TransportFactory transportFactory = new TransportFactory();
+
+        for (int i = 0; i < 9; i++) {
+            transportList.add(transportFactory.getRandomNext());
+        }
+
+        System.out.println(">>> Создано транспорта: " + transportList.size());
     }
 }

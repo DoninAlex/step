@@ -3,16 +3,15 @@ package by.donin.L2025_03_06;
 import java.util.List;
 import java.util.Random;
 
-import static by.donin.L2025_03_06.TransportFactory.models;
-
 public class Car extends Transport{
     private String fuelType;
     private Random random;
-    private List<String> fuelTypes = List.of("Бензиновый", "Газ", "Электро");
+    private final List<String> fuelTypes = List.of("Бензиновый", "Газ", "Электро");
 
-    public Car(String model) {
+    public Car(String model, int speed) {
         this.setModel(model);
-        this.fuelType = fuelTypes.get(random.nextInt(fuelTypes.size()));
+        this.setSpeed(speed);
+        this.fuelType = (fuelTypes.get(random.nextInt(fuelTypes.size())));
     }
 
 
