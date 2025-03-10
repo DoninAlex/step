@@ -1,0 +1,50 @@
+Описание задачи:
+Класс Transport (базовый класс транспорта):
+
+Поля:
+String model – модель транспорта.
+int speed – максимальная скорость.
+Методы:
+equals() и hashCode() – транспорт считается одинаковым, если совпадает model
+toString() – вывод информации о транспорте.
+
+Классы-наследники:
+
+Car – машина, добавляет fuelType (тип топлива).
+Bike – мотоцикл, добавляет hasSidecar (есть ли коляска).
+Truck – грузовик, добавляет loadCapacity (грузоподъемность).
+Класс TransportFactory – создаёт случайный транспорт.
+
+Класс TransportManager:
+
+Поля:
+List<Transport> transportList – список всех транспортных средств.
+Set<Transport> uniqueTransportSet – набор уникальных транспортных средств.
+Методы:
+addTransport(Transport transport) – добавляет транспорт в 2 списка transportList и uniqueTransportSet
+removeTransport(String model) – удаляет транспорт по модели из 2 списков transportList и uniqueTransportSet
+sortTransportBySpeed() – сортирует транспорт по максимальной скорости в 2 списках transportList и uniqueTransportSet
+sortTransportByModel() – сортирует транспорт помодели по алфавиту в 2 списках transportList и uniqueTransportSet
+printAllTransport() – выводит весь транспорт из transportList
+printUniqueTransport()– выводит весь транспорт из uniqueTransportSet
+
+В main создаем обьект TransportManager наполняем его 20 транспортными средствами и вызываем все его методы по очереди что бы посмортреть что все работает.
+
+-----------------------------------------------------------------------------------------------------------
+
+1. Доработаем Transport – добавим licensePlate (номерной знак) String
+Перепишем equals и hashCode  Теперь транспорт уникален по номеру licensePlate!
+
+2. Добавляем Map в TransportManager (Очистите весь класс от переменных и методов)
+Добавим две новые структуры данных: 
+
+Map<String, Transport> transportByPlate – хранит транспорт по номеру (licensePlate).
+Map<String, List<Transport>> transportByType – группирует транспорт по типу (Car, Bike, Truck).
+
+Методы:
+addTransport(Transport transport) добавляет транспорт в 2 списка 
+removeTransport(String licensePlate) удаляет транспорт по модели из 2 списков
+findTransportByPlate(String licensePlate) ищет и возвращает транспорт по номерному знаку из коллекции transportByPlate
+getTransportByType(String type) возвращает коллекцию транспортных средств данного типа из коллекции transportByType
+getFastestTransportByType(String type) возвращает самый быстрый транспорт данного типа из коллекции transportByType
+printAllTransport() выводит в консоль все траспортные средства из transportByPlate

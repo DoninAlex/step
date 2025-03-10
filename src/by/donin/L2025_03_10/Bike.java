@@ -1,13 +1,13 @@
-package by.donin.L2025_03_06;
+package by.donin.L2025_03_10;
 
 import java.util.Random;
 
-public class Bike extends Transport{
+public class Bike extends Transport {
     private boolean hasSidecar;
     private Random random = new Random();
 
-    public Bike(String model, int speed, Boolean hasSidecar) {
-        super(model, speed);
+    public Bike(String model, int speed, Boolean hasSidecar, String licensePlate) {
+        super(model, speed, licensePlate);
         this.hasSidecar = hasSidecar;
     }
 

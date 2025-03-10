@@ -9,10 +9,25 @@ public class Main {
         List<Transport> transportList = new ArrayList<>(capacity);
         TransportFactory transportFactory = new TransportFactory();
 
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 10; i++) {
             transportList.add(transportFactory.getRandomNext());
         }
 
         System.out.println(">>> Создано транспорта: " + transportList.size());
+
+        System.out.println(transportList);
+
+        test("Hi", "How");
+        test("Hi");
+        test();
+        String[] s = new String[12];
+        test(s);
+    }
+
+    public static void test(String... strings) {
+        String hi = strings[0];
+        String how = strings[1];
     }
 }
+
+

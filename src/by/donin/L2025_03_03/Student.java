@@ -29,6 +29,12 @@ public class Student implements Comparable<Student>{
         //System.out.println(this.toString());
     }
 
+    public Student(String name, int age, double grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+
     public String getName() {
         return name;
     }
