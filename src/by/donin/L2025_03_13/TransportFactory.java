@@ -1,8 +1,6 @@
-package by.donin.L2025_03_10;
+package by.donin.L2025_03_13;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class TransportFactory {
@@ -18,11 +16,11 @@ public class TransportFactory {
 
 
         if (transportKind == 0) {
-            return new Car(models.get(random.nextInt(models.size())), 130 + random.nextInt(100), fuelTypes.get(random.nextInt(fuelTypes.size())), getRandomLicensePlate());
+            return new Car(models.get(random.nextInt(models.size())), 130 + random.nextInt(100), fuelTypes.get(random.nextInt(fuelTypes.size())), getRandomLicensePlate(), 1970 + random.nextInt(70));
         } else if (transportKind == 1) {
-            return new Bike(models.get(random.nextInt(models.size())), 150 + random.nextInt(100), random.nextBoolean(), getRandomLicensePlate());
+            return new Bike(models.get(random.nextInt(models.size())), 150 + random.nextInt(100), random.nextBoolean(), getRandomLicensePlate(), 1970 + random.nextInt(70));
         } else if (transportKind == 2) {
-            return new Truck(models.get(random.nextInt(models.size())), 120 + random.nextInt(100), 100 + random.nextInt(300), getRandomLicensePlate());
+            return new Truck(models.get(random.nextInt(models.size())), 120 + random.nextInt(100), 100 + random.nextInt(300), getRandomLicensePlate(), 1970 + random.nextInt(70));
         } else return null;
     }
 

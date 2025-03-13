@@ -1,0 +1,95 @@
+### **🚗 Система управления транспортом**  
+
+## **1. Добавление новых полей в `Transport`**  
+Добавить в класс `Transport`: 
+- **`User user`** – владелец транспортного средства (импортируем `User` из предыдущих уроков). 
+- **`int year`** – год выпуска. 
+- **`int speed`** – максимальная скорость. 
+
+---
+
+## **2. Хранение транспорта по владельцам (`TransportUserManager`)**  
+Каждый владелец может иметь **несколько транспортных средств**. 
+
+**Создать `TransportUserManager` с переменной:** 
+```java
+private Map<User, List<Transport>> transportByOwner;
+```  
+
+**Методы:**
+- `addTransport(User owner, Transport transport)` – добавить транспорт владельцу.  
+- `List<Transport> getTransportByOwner(User owner)` – получить список транспорта владельца.  
+- `removeTransport(User owner, String licensePlate)` – удалить транспорт у владельца.  
+- `Transport getFastestTransport(User owner)` – получить самый быстрый транспорт владельца.  
+- `User findOwnerWithMostCars()` – определить владельца с наибольшим числом транспортных средств.  
+- `printAllOwnersAndTransport()` – вывести всех владельцев и их транспорт.  
+
+---
+
+## **3. Подсчет количества машин каждого бренда (`TransportStatistics`)**  
+Определить, **сколько машин каждого бренда есть в системе**.  
+
+**Создать `TransportStatistics` с переменной:**  
+```java
+private Map<String, Integer> brandCount;
+```  
+
+**Методы:**
+- `addTransport(Transport transport)` – добавить транспорт и увеличить счетчик.  
+- `int getBrandCount(String brand)` – получить количество машин бренда.  
+- `printBrandStatistics()` – вывести статистику по брендам.  
+
+---
+
+## **4. Группировка транспорта по скорости (`TransportSpeedGrouper`)**  
+Хранить транспорт по максимальной скорости.  
+
+**Создать `TransportSpeedGrouper` с переменной:**  
+```java
+private Map<Integer, Set<Transport>> transportBySpeed;
+```  
+
+**Методы:**
+- `addTransport(Transport transport)` – добавляет транспорт.  
+- `Set<Transport> getTransportBySpeed(int speed)` – получить все машины с данной скоростью.  
+
+---
+
+## **5. Аналитика транспортных средств**  
+
+### **5.1. Найти все машины старше определенного года**  
+Создать список из 100 транспортных средств и реализовать метод:  
+```java
+List<Transport> filterByYear(int year);
+```  
+Возвращает список транспорта, **выпущенного раньше указанного года**.  
+
+### **5.2. Найти 3 самые быстрые машины**  
+Реализовать метод:  
+```java
+List<Transport> findTop3Fastest();
+```  
+Выводит **топ-3 самых быстрых транспортных средств**.  
+
+### **5.3. Получить список уникальных производителей**  
+Реализовать метод:  
+```java
+Set<String> getUniqueBrands();
+```  
+Возвращает список **всех уникальных производителей** транспорта.  
+
+---
+
+## **6. Группировка транспорта по скорости (`groupBySpeedRange()`)**  
+Разделить транспорт на 3 категории по скорости:  
+- **Медленный**: `speed < 100 км/ч`  
+- **Средний**: `100 ≤ speed ≤ 200 км/ч`  
+- **Быстрый**: `speed > 200 км/ч`  
+
+**Использовать `Map<String, List<Transport>>`:**  
+```java
+Map<String, List<Transport>> groupBySpeedRange();
+```  
+Где **ключ** – категория скорости (`"Медленный"`, `"Средний"`, `"Быстрый"`),  
+а **значение** – список транспорта, попадающего в эту категорию.  
+

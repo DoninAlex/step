@@ -1,4 +1,4 @@
-package by.donin.L2025_03_10;
+package by.donin.L2025_03_13;
 
 import java.util.Random;
 
@@ -6,8 +6,8 @@ public class Car extends Transport {
     private String fuelType;
     private Random random = new Random();
 
-    public Car(String model, int speed, String fuelType,String licensePlate) {
-        super(model, speed, licensePlate);
+    public Car(String model, int speed, String fuelType,String licensePlate, int year) {
+        super(model, speed, licensePlate, year);
         this.fuelType = fuelType;
     }
 

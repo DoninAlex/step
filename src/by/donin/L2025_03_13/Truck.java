@@ -1,4 +1,4 @@
-package by.donin.L2025_03_10;
+package by.donin.L2025_03_13;
 
 import java.util.Random;
 
@@ -6,8 +6,8 @@ public class Truck extends Transport {
     private int loadCapacity;
     private Random random = new Random();
 
-    public Truck(String model, int speed, int loadCapacity,String licensePlate) {
-        super(model, speed, licensePlate);
+    public Truck(String model, int speed, int loadCapacity,String licensePlate, int year) {
+        super(model, speed, licensePlate, year);
         this.loadCapacity = loadCapacity;
     }
 

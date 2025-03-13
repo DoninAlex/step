@@ -31,15 +31,13 @@ public class User implements Cloneable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return age == user.age && Objects.equals(name, user.name);
+        return Objects.equals(name, user.name);
     }
-
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age);
+        return Objects.hashCode(name);
     }
-
 
     @Override
     public User clone() {
@@ -50,5 +48,10 @@ public class User implements Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
